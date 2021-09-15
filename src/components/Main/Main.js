@@ -13,7 +13,21 @@ const Main = ({ text, buttonText, onButtonClick }) => {
           <button onClick={() => onButtonClick()}>{buttonText}</button>
         </div>
       </div>
-      <div className={styles.Right}>right</div>
+      <div className={styles.Right}>
+        <div className={styles.TabBar}>
+          <div className={styles.Tabs}>
+            <button className={styles.active}>Suggest</button>
+            <button>Grammar</button>
+            <button>Vocabulary</button>
+          </div>
+          <div className={styles.Levels}>levels</div>
+        </div>
+        <div className={styles.Sentences}>
+          <p className={styles.Sentence}>sentence 1</p>
+          <p className={styles.Sentence}>sentence 2</p>
+          <p className={styles.Sentence}>sentence 3</p>
+        </div>
+      </div>
     </div>
   );
 };

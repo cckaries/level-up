@@ -1,20 +1,20 @@
 .Container {
   flex: 1;
   display: flex;
-  border: 1px dotted blue;
+  // border: 1px dotted blue;
 
   > div {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border: 1px dotted purple;
+    // border: 1px dotted purple;
   }
 }
 
 .Container > .Left {
   > div {
     padding: 0.5rem 1rem;
-    border: 1px dotted orange;
+    // border: 1px dotted orange;
   }
 
   > .Preview {
@@ -32,5 +32,65 @@
 
   > .Buttons {
     flex: 1;
+  }
+}
+
+.Container > .Right {
+  display: flex;
+  flex-direction: column;
+}
+
+.Container > .Right > .TabBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid #dcdddd;
+
+  > div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  > .Tabs {
+    > button {
+      height: 100%;
+      border: 0;
+      background: none;
+      color: #06c;
+      cursor: pointer;
+
+      &.active {
+        color: #4a4a4a;
+        border-top: 1px solid #dcdddd;
+        border-right: 1px solid #dcdddd;
+        border-left: 1px solid #dcdddd;
+        cursor: initial;
+      }
+    }
+  }
+
+  > .Levels {
+  }
+}
+
+.Container > .Right > .Sentences {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+
+  > .Sentence {
+    display: flex;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px solid #dcdddd;
+    background-color: rgb(230, 225, 241);
+
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+    }
   }
 }
