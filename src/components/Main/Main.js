@@ -6,7 +6,11 @@ const Main = ({ text, buttonText, onButtonClick }) => {
       <div className={styles.Left}>
         <div className={styles.Preview}>{text}</div>
         <div className={styles.Input}>
-          <textarea name="textarea" placeholder="type anything here..." />
+          <textarea
+            id="level-up-textarea"
+            name="textarea"
+            placeholder="type anything here..."
+          />
         </div>
         <div className={styles.Buttons}>
           buttons
@@ -23,9 +27,9 @@ const Main = ({ text, buttonText, onButtonClick }) => {
           <div className={styles.Levels}>levels</div>
         </div>
         <div className={styles.Sentences}>
-          <p className={styles.Sentence}>sentence 1</p>
-          <p className={styles.Sentence}>sentence 2</p>
-          <p className={styles.Sentence}>sentence 3</p>
+          <div className={styles.Sentence}>sentence 1</div>
+          <div className={styles.Sentence}>sentence 2</div>
+          <div className={styles.Sentence}>sentence 3</div>
         </div>
       </div>
     </div>
