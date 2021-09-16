@@ -1,21 +1,19 @@
-/* step 1: rewrite reducer function */
+/* step 3: rewrite dispatch & onClick event */
 
 import { useReducer } from 'react';
 
 const initialState = { count: 0 };
 
 function reducer(prevState, nextState) {
-  return {
-    ...prevState,
-    ...nextState,
-  };
+  return { ...prevState, ...nextState };
 }
 
 const Counter = () => {
   const [state, setState] = useReducer(reducer, initialState);
   /* 
-    there's no action type anymore in reducer function, we can rewrite button onClick actions as 
-    also rename 'dispatch' to setState 
+    since there's no action type anymore in reducer function, 
+    we can rewrite onClick events of buttons to just pass next state to reducer,
+    also rename 'dispatch' to 'setState'
   */
   return (
     <>

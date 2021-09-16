@@ -1,21 +1,21 @@
-/* step 1: rewrite reducer function */
+/* step 4: combine everything */
 
 import { useReducer } from 'react';
 
 // const initialState = { count: 0 };
 
 // function reducer(prevState, nextState) {
-//   return {
-//     ...prevState,
-//     ...nextState,
-//   };
+//   return { ...prevState, ...nextState };
 // }
 
 /* 
   put initialState, reducer & useReducer altogether and its done!
 */
 const Counter = () => {
-  const [state, setState] = useReducer( // you can also deconstruct state as { count }
+  /* 
+    you can also deconstruct state as { count }, then you can simply use count instead of state.count
+  */
+  const [state, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     { count: 0 }
   );
