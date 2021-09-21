@@ -21,10 +21,13 @@ const sentencesObj = {
 const Main = ({ text, buttonText, onButtonClick }) => {
   // const [currentTab, setCurrentTab] = useState('0');
   // const [currentSentence, setCurrentSentence] = useState(null);
-  const [{ currentTab, currentSentence }, setState] = useReducer(reducer, {
-    currentTab: null,
-    currentSentence: null,
-  });
+  const [{ currentTab, currentSentence }, setState] = useReducer(
+    (prevState, nextState) => ({ ...prevState, ...nextState }),
+    {
+      currentTab: null,
+      currentSentence: null,
+    }
+  );
 
   useEffect(() => {
     setState({ currentTab: '1' });
