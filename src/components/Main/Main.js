@@ -18,14 +18,15 @@ const sentencesObj = {
   sent4: 'this is sentence 4',
 };
 
-const Main = ({ text, buttonText, onButtonClick }) => {
+const Main = ({ buttonText, onButtonClick }) => {
   // const [currentTab, setCurrentTab] = useState('0');
   // const [currentSentence, setCurrentSentence] = useState(null);
-  const [{ currentTab, currentSentence }, setState] = useReducer(
+  const [{ currentTab, currentSentence, text }, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     {
       currentTab: null,
       currentSentence: null,
+      text: 'here shows what you type',
     }
   );
 
@@ -50,6 +51,7 @@ const Main = ({ text, buttonText, onButtonClick }) => {
             id="level-up-textarea"
             name="textarea"
             placeholder="type anything here..."
+            onInput={e => setState({ text: e.target.value })}
           />
         </div>
         <div className={styles.Buttons}>
