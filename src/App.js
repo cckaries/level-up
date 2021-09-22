@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div className={styles.Container}>
-      <button onClick={() => dispatch({ type: 'increment' })}>ADD</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>REDUCE</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>ADD</button>
+      <button onClick={() => dispatch({ type: 'DECREMENT' })}>REDUCE</button>
       <Header />
       <Main />
     </div>
