@@ -6,9 +6,9 @@ import styles from './App.module.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const reduxCount = useSelector(state => state.count);
+  const { count: reduxCount, text } = useSelector(state => state);
 
-  console.log('reduxCount:', reduxCount);
+  console.log('reduxCount:', reduxCount, text);
 
   return (
     <div className={styles.Container}>

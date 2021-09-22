@@ -1,9 +1,11 @@
 import { useState, useEffect, useReducer } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import styles from './Left.module.scss';
 
 const Left = ({ buttonText, onButtonClick }) => {
+  const dispatch = useDispatch();
   const [{ text }, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     {
@@ -19,7 +21,10 @@ const Left = ({ buttonText, onButtonClick }) => {
           id="level-up-textarea"
           name="textarea"
           placeholder="type anything here..."
-          onInput={e => setState({ text: e.target.value })}
+          onInput={e => {
+            // setState({ text: e.target.value });
+            dispatch({ type: 'SET_TEXT', payload: e.target.value });
+          }}
         />
       </div>
       <div className={styles.Buttons}>

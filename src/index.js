@@ -7,12 +7,17 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 
-const counterReducer = (state = { count: 0 }, action) => {
+const counterReducer = (
+  state = { count: 0, text: 'here shows what you type stored in REDUX' },
+  action = { type: null, payload: null }
+) => {
   switch (action.type) {
     case 'INCREMENT':
       return { ...state, count: state.count + 1 };
     case 'DECREMENT':
       return { ...state, count: state.count - 1 };
+    case 'SET_TEXT':
+      return { ...state, text: action.payload || '' };
     default:
       return state;
   }
