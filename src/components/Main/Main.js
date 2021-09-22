@@ -30,11 +30,21 @@ const Main = ({ buttonText, onButtonClick }) => {
     }
   );
 
+  const onWindowResize = () => {
+    setState({
+      text: `the window is: ${
+        document.querySelector('#container').offsetWidth
+      } * ${document.querySelector('#container').offsetHeight}`,
+    });
+  };
+
   useEffect(() => {
     setState({ currentTab: '1' });
+    window.addEventListener('resize', onWindowResize);
 
     return () => {
       setState({ currentTab: '2' });
+      window.removeEventListener('resize', onWindowResize);
     };
   }, []);
 
@@ -43,7 +53,7 @@ const Main = ({ buttonText, onButtonClick }) => {
   }, [currentTab]);
 
   return (
-    <div className={styles.Container}>
+    <div id="container" className={styles.Container}>
       <div className={styles.Left}>
         <div className={styles.Preview}>{text}</div>
         <div className={styles.Input}>
