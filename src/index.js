@@ -8,9 +8,14 @@ import { Provider } from 'react-redux';
 import App from './App';
 
 const counterReducer = (state = { count: 0 }, action) => {
-  return {
-    count: state.count + 1,
-  };
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
 };
 
 const store = createStore(counterReducer);
