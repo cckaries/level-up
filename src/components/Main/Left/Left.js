@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import cx from 'classnames';
 
 import styles from './Left.module.scss';
-import { counterActions, textActions } from '../../../store';
+import { textActions } from '../../../store/text';
 
 const Left = ({ buttonText, onButtonClick }) => {
   const dispatch = useDispatch();
