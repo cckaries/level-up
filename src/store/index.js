@@ -1,41 +1,8 @@
 // import { createStore } from 'redux';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: { count: 0 },
-  reducers: {
-    increment(state) {
-      state.count++;
-    },
-    decrement(state) {
-      state.count--;
-    },
-  },
-});
-
-const textSlice = createSlice({
-  name: 'text',
-  initialState: { text: 'here shows what you type stored in REDUX' },
-  reducers: {
-    setText(state, action) {
-      state.text = action.payload;
-    },
-  },
-});
-
-const authSlice = createSlice({
-  name: 'auth',
-  initialState: { isLoggedIn: false },
-  reducers: {
-    login(state) {
-      state.isLoggedIn = true;
-    },
-    logout(state) {
-      state.isLoggedIn = false;
-    },
-  },
-});
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './counter';
+import textReducer from './text';
+import authReducer from './auth';
 
 // const counterReducer = (
 //   state = { count: 0, text: 'here shows what you type stored in REDUX' },
@@ -56,13 +23,10 @@ const authSlice = createSlice({
 // const store = createStore(counterSlice.reducer);
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer,
-    text: textSlice.reducer,
-    auth: authSlice.reducer,
+    counter: counterReducer,
+    text: textReducer,
+    auth: authReducer,
   },
 });
 
-export const counterActions = counterSlice.actions;
-export const textActions = textSlice.actions;
-export const authActions = authSlice.actions;
 export default store;
