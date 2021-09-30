@@ -11,8 +11,8 @@ const counterSlice = createSlice({
     decrement(state) {
       state.count--;
     },
-    setText(state, payload) {
-      state.text = payload;
+    setText(state, action) {
+      state.text = action.payload;
     },
   },
 });
