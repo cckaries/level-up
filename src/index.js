@@ -10,11 +10,17 @@ import App from './App';
 
 const counterReducer2 = createSlice({
   name: 'counter',
-  initialState: {},
+  initialState: { count: 0, text: 'here shows what you type stored in REDUX' },
   reducers: {
-    increment() {},
-    decrement() {},
-    setText() {},
+    increment(state) {
+      state.count++;
+    },
+    decrement(state) {
+      state.count--;
+    },
+    setText(state, payload) {
+      state.text = payload;
+    },
   },
 });
 
