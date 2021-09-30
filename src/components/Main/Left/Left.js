@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import cx from 'classnames';
 
 import styles from './Left.module.scss';
-import { counterActions } from '../../../store';
+import { counterActions, textActions } from '../../../store';
 
 const Left = ({ buttonText, onButtonClick }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Left = ({ buttonText, onButtonClick }) => {
           onInput={e => {
             // setState({ text: e.target.value });
             // dispatch({ type: 'SET_TEXT', payload: e.target.value });
-            dispatch(counterActions.setText(e.target.value));
+            dispatch(textActions.setText(e.target.value));
           }}
         />
       </div>
