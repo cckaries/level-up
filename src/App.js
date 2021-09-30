@@ -1,16 +1,19 @@
 import { useDispatch } from 'react-redux';
 
+import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import styles from './App.module.scss';
+import { counterActions } from './store/index';
 
 function App() {
   const dispatch = useDispatch();
 
   return (
     <div className={styles.Container}>
-      <button onClick={() => dispatch({ type: 'INCREMENT' })}>ADD</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT' })}>REDUCE</button>
+      <button onClick={() => dispatch(counterActions.increment())}>ADD</button>
+      <button onClick={() => dispatch(counterActions.decrement())}>
+        REDUCE
+      </button>
       <Header />
       <Main />
     </div>
