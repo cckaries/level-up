@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import App from './App';
 
@@ -40,7 +40,8 @@ const counterSlice = createSlice({
 //   }
 // };
 
-const store = createStore(counterSlice.reducer);
+// const store = createStore(counterSlice.reducer);
+const store = configureStore({ reducer: counterSlice.reducer });
 
 ReactDOM.render(
   <React.StrictMode>
