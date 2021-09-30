@@ -4,8 +4,19 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { createSlice } from '@reduxjs/toolkit';
 
 import App from './App';
+
+const counterReducer2 = createSlice({
+  name: 'counter',
+  initialState: {},
+  reducers: {
+    increment() {},
+    decrement() {},
+    setText() {},
+  },
+});
 
 const counterReducer = (
   state = { count: 0, text: 'here shows what you type stored in REDUX' },
