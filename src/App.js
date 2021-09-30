@@ -8,8 +8,6 @@ function App() {
   const dispatch = useDispatch();
   const { count: reduxCount, text } = useSelector(state => state);
 
-  console.log('reduxCount:', reduxCount, text);
-
   return (
     <div className={styles.Container}>
       <button onClick={() => dispatch({ type: 'INCREMENT' })}>ADD</button>

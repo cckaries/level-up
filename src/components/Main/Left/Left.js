@@ -6,12 +6,13 @@ import styles from './Left.module.scss';
 
 const Left = ({ buttonText, onButtonClick }) => {
   const dispatch = useDispatch();
-  const [{ text }, setState] = useReducer(
-    (prevState, nextState) => ({ ...prevState, ...nextState }),
-    {
-      text: 'here shows what you type',
-    }
-  );
+  const { text } = useSelector(state => state);
+  // const [{ text }, setState] = useReducer(
+  //   (prevState, nextState) => ({ ...prevState, ...nextState }),
+  //   {
+  //     text: 'here shows what you type',
+  //   }
+  // );
 
   return (
     <div className={styles.Left}>
