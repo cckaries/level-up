@@ -8,7 +8,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import App from './App';
 
-const counterReducer2 = createSlice({
+const counterSlice = createSlice({
   name: 'counter',
   initialState: { count: 0, text: 'here shows what you type stored in REDUX' },
   reducers: {
@@ -24,23 +24,23 @@ const counterReducer2 = createSlice({
   },
 });
 
-const counterReducer = (
-  state = { count: 0, text: 'here shows what you type stored in REDUX' },
-  action = { type: null, payload: null }
-) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { ...state, count: state.count + 1 };
-    case 'DECREMENT':
-      return { ...state, count: state.count - 1 };
-    case 'SET_TEXT':
-      return { ...state, text: action.payload || '' };
-    default:
-      return state;
-  }
-};
+// const counterReducer = (
+//   state = { count: 0, text: 'here shows what you type stored in REDUX' },
+//   action = { type: null, payload: null }
+// ) => {
+//   switch (action.type) {
+//     case 'INCREMENT':
+//       return { ...state, count: state.count + 1 };
+//     case 'DECREMENT':
+//       return { ...state, count: state.count - 1 };
+//     case 'SET_TEXT':
+//       return { ...state, text: action.payload || '' };
+//     default:
+//       return state;
+//   }
+// };
 
-const store = createStore(counterReducer);
+const store = createStore(counterSlice.reducer);
 
 ReactDOM.render(
   <React.StrictMode>
