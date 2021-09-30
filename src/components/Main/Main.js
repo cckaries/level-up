@@ -5,7 +5,7 @@ import styles from './Main.module.scss';
 import Left from './Left/Left';
 import Right from './Right/Right';
 
-const Main = ({ buttonText, onButtonClick }) => {
+const Main = (props) => {
   const [{}, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     {}
@@ -30,7 +30,7 @@ const Main = ({ buttonText, onButtonClick }) => {
   return (
     <div id="container" className={styles.Container}>
       <Left />
-      <Right />
+      <Right buttonText="send" onButtonClick={() => {}} />
     </div>
   );
 };
