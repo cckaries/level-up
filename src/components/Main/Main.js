@@ -1,11 +1,11 @@
-import { useState, useEffect, useReducer } from 'react';
-import cx from 'classnames';
+import { useEffect, useReducer } from 'react';
+// import cx from 'classnames';
 
 import styles from './Main.module.scss';
 import Left from './Left/Left';
 import Right from './Right/Right';
 
-const Main = (props) => {
+const Main = props => {
   const [{}, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     {}
