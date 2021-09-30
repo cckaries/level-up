@@ -3,7 +3,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
   name: 'counter',
-  initialState: { count: 0, text: 'here shows what you type stored in REDUX' },
+  initialState: { count: 0 },
   reducers: {
     increment(state) {
       state.count++;
@@ -11,8 +11,28 @@ const counterSlice = createSlice({
     decrement(state) {
       state.count--;
     },
+  },
+});
+
+const textSlice = createSlice({
+  name: 'text',
+  initialState: { text: 'here shows what you type stored in REDUX' },
+  reducers: {
     setText(state, action) {
       state.text = action.payload;
+    },
+  },
+});
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: { isLoggedIn: false },
+  reducers: {
+    login(state) {
+      state.isLoggedIn = true;
+    },
+    logout(state) {
+      state.isLoggedIn = false;
     },
   },
 });
@@ -34,7 +54,13 @@ const counterSlice = createSlice({
 // };
 
 // const store = createStore(counterSlice.reducer);
-const store = configureStore({ reducer: counterSlice.reducer });
+const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+    text: textSlice.reducer,
+    auth: authSlice.reducer,
+  },
+});
 
 export const counterActions = counterSlice.actions;
 export default store;
