@@ -1,12 +1,13 @@
-import { useState, useEffect, useReducer } from 'react';
+// import { useState, useEffect, useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import cx from 'classnames';
+// import cx from 'classnames';
 
 import styles from './Left.module.scss';
+import { textActions } from '../../../store/text';
 
 const Left = ({ buttonText, onButtonClick }) => {
   const dispatch = useDispatch();
-  const { text } = useSelector(state => state);
+  const { text } = useSelector(state => state.text);
   // const [{ text }, setState] = useReducer(
   //   (prevState, nextState) => ({ ...prevState, ...nextState }),
   //   {
@@ -24,7 +25,8 @@ const Left = ({ buttonText, onButtonClick }) => {
           placeholder="type anything here..."
           onInput={e => {
             // setState({ text: e.target.value });
-            dispatch({ type: 'SET_TEXT', payload: e.target.value });
+            // dispatch({ type: 'SET_TEXT', payload: e.target.value });
+            dispatch(textActions.setText(e.target.value));
           }}
         />
       </div>

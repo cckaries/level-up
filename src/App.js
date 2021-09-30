@@ -1,17 +1,21 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import styles from './App.module.scss';
+import { counterActions } from './store/counter';
 
 function App() {
+  const count = useSelector(state => state.counter.count);
   const dispatch = useDispatch();
-  const { count: reduxCount, text } = useSelector(state => state);
 
   return (
     <div className={styles.Container}>
-      <button onClick={() => dispatch({ type: 'INCREMENT' })}>ADD</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT' })}>REDUCE</button>
+      <button onClick={() => dispatch(counterActions.increment())}>ADD</button>
+      <button onClick={() => dispatch(counterActions.decrement())}>
+        REDUCE
+      </button>
+      <div>{count}</div>
       <Header />
       <Main />
     </div>
