@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import cx from 'classnames';
 
 import styles from './Left.module.scss';
-import { textActions } from '../../../store/text';
+import { putTextThunk, textActions } from '../../../store/text';
 
 const Left = ({ buttonText, onButtonClick }) => {
   const dispatch = useDispatch();
@@ -21,19 +21,21 @@ const Left = ({ buttonText, onButtonClick }) => {
       2. fetch list items
       3. display list items in <Right />
     */
-    fetch('https://level-f5322-default-rtdb.firebaseio.com/text.json', {
-      method: 'PUT',
-      body: JSON.stringify({
-        text,
-      }),
-    }).then(() =>
-      fetch('https://level-f5322-default-rtdb.firebaseio.com/list.json')
-        .then(res => res.json())
-        .then(resJson => {
-          console.log(resJson);
-          dispatch(textActions.setSentences(resJson));
-        })
-    );
+    // fetch('https://level-f5322-default-rtdb.firebaseio.com/text.json', {
+    //   method: 'PUT',
+    //   body: JSON.stringify({
+    //     text,
+    //   }),
+    // }).then(() =>
+    //   fetch('https://level-f5322-default-rtdb.firebaseio.com/list.json')
+    //     .then(res => res.json())
+    //     .then(resJson => {
+    //       console.log(resJson);
+    //       dispatch(textActions.setSentences(resJson));
+    //     })
+    // );
+
+    dispatch(putTextThunk(text));
   }, [text]);
 
   return (
