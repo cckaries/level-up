@@ -1,4 +1,4 @@
-// import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import cx from 'classnames';
 
@@ -14,6 +14,24 @@ const Left = ({ buttonText, onButtonClick }) => {
   //     text: 'here shows what you type',
   //   }
   // );
+
+  useEffect(() => {
+    /* 
+      1. call the api using PUT method to send the text to firebase db
+      2. fetch list items
+      3. display list items in <Right />
+    */
+    fetch('https://level-f5322-default-rtdb.firebaseio.com/text.json', {
+      method: 'PUT',
+      body: JSON.stringify({
+        text,
+      }),
+    }).then(() =>
+      fetch('https://level-f5322-default-rtdb.firebaseio.com/list.json')
+        .then(res => res.json())
+        .then(resJson => console.log(resJson))
+    );
+  }, [text]);
 
   return (
     <div className={styles.Left}>
