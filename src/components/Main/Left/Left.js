@@ -29,7 +29,10 @@ const Left = ({ buttonText, onButtonClick }) => {
     }).then(() =>
       fetch('https://level-f5322-default-rtdb.firebaseio.com/list.json')
         .then(res => res.json())
-        .then(resJson => console.log(resJson))
+        .then(resJson => {
+          console.log(resJson);
+          dispatch(textActions.setSentences(resJson));
+        })
     );
   }, [text]);
 
