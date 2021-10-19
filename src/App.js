@@ -3,6 +3,7 @@
 import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import MainPage from './pages/main';
+import DictionaryPage from './pages/dictionary'
 // import { counterActions } from './store/counter';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <div>{count}</div> */}
       <Header />
       <MainPage />
+      <DictionaryPage />
     </div>
   );
 }
