@@ -5,6 +5,7 @@ import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import MainPage from './pages/main';
 import DictionaryPage from './pages/dictionary';
+import DetailsPage from './pages/details';
 // import { counterActions } from './store/counter';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/dictionary">
           <DictionaryPage />
+        </Route>
+        <Route path="/details/:sentenceId">
+          <DetailsPage />
         </Route>
       </main>
     </div>
