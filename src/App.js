@@ -1,5 +1,5 @@
 // import { useDispatch, useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import styles from './App.module.scss';
 import Header from './components/Header/Header';
@@ -21,15 +21,17 @@ function App() {
       <div>{count}</div> */}
       <Header />
       <main>
-        <Route path="/main">
-          <MainPage />
-        </Route>
-        <Route path="/dictionary">
-          <DictionaryPage />
-        </Route>
-        <Route path="/details/:sentenceId">
-          <DetailsPage />
-        </Route>
+        <Switch>
+          <Route path="/main">
+            <MainPage />
+          </Route>
+          <Route path="/dictionary" exact>
+            <DictionaryPage />
+          </Route>
+          <Route path="/dictionary/:sentenceId">
+            <DetailsPage />
+          </Route>
+        </Switch>
       </main>
     </div>
   );
