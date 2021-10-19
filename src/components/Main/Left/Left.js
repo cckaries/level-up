@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import cx from 'classnames';
 
@@ -56,6 +56,7 @@ const Left = ({ buttonText, onButtonClick = () => {} }) => {
       <div className={styles.Buttons}>
         buttons
         <button onClick={() => onButtonClick()}>{buttonText}</button>
+        <a href="/dictionary">link to dictionary</a>
       </div>
     </div>
   );
