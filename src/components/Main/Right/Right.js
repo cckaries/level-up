@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import styles from './Right.module.scss';
+import { Link } from 'react-router-dom';
 
 const tabsObj = {
   0: 'Suggest',
@@ -76,6 +77,7 @@ const Right = ({ onOptionClick = () => {} }) => {
             }}
           >
             {sentences[sentenceKey]}
+            <Link to={`/details/${sentenceKey}`}>Details</Link>
           </div>
         ))}
       </div>
