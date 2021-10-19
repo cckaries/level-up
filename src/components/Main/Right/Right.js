@@ -19,7 +19,7 @@ const tabsObj = {
   sent4: 'this is sentence 4',
 }; */
 
-const Right = ({ buttonText, onButtonClick }) => {
+const Right = ({ onOptionClick = () => {} }) => {
   // const [currentTab, setCurrentTab] = useState('0');
   // const [currentSentence, setCurrentSentence] = useState(null);
   const { sentences } = useSelector(state => state.text);

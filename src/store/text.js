@@ -64,7 +64,7 @@ export const putTextThunk = text => {
     try {
       await putText();
       const resJson = await getSentences();
-      console.log('sentences:', resJson);
+      // console.log('sentences:', resJson);
       dispatch(textActions.setSentences(resJson));
     } catch (err) {
       throw new Error('It just failed:', err);

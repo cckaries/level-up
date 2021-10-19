@@ -18,8 +18,10 @@ function App() {
       </button>
       <div>{count}</div> */}
       <Header />
+      <main>
       <MainPage />
       <DictionaryPage />
+      </main>
     </div>
   );
 }

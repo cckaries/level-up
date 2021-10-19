@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './Left.module.scss';
 import { putTextThunk, textActions } from '../../../store/text';
 
-const Left = ({ buttonText, onButtonClick }) => {
+const Left = ({ buttonText, onButtonClick = () => {} }) => {
   const dispatch = useDispatch();
   const { text } = useSelector(state => state.text);
   // const [{ text }, setState] = useReducer(

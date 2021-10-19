@@ -29,8 +29,8 @@ const Main = props => {
 
   return (
     <div id="container" className={styles.Container}>
-      <Left />
-      <Right buttonText="send" onButtonClick={() => {}} />
+      <Left buttonText="send" onButtonClick={() => {}} />
+      <Right />
     </div>
   );
 };
