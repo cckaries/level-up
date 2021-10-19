@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import styles from './Right.module.scss';
@@ -10,17 +11,18 @@ const tabsObj = {
   3: '94Pro',
 };
 
-const sentencesObj = {
+/* const sentencesObj = {
   sent1: 'this is sentence 1',
   sent2: 'this is sentence 2',
   sent3: 'this is sentence 33',
   sent5: 'this is sentence 5',
   sent4: 'this is sentence 4',
-};
+}; */
 
 const Right = ({ buttonText, onButtonClick }) => {
   // const [currentTab, setCurrentTab] = useState('0');
   // const [currentSentence, setCurrentSentence] = useState(null);
+  const { sentences } = useSelector(state => state.text);
   const [{ currentTab, currentSentence }, setState] = useReducer(
     (prevState, nextState) => ({ ...prevState, ...nextState }),
     {
@@ -61,7 +63,7 @@ const Right = ({ buttonText, onButtonClick }) => {
         <div className={styles.Levels}>levels</div>
       </div>
       <div className={styles.Sentences}>
-        {Object.keys(sentencesObj).map(sentenceKey => (
+        {Object.keys(sentences).map(sentenceKey => (
           <div
             key={sentenceKey}
             className={cx(
@@ -73,7 +75,7 @@ const Right = ({ buttonText, onButtonClick }) => {
               setState({ currentSentence: sentenceKey });
             }}
           >
-            {sentencesObj[sentenceKey]}
+            {sentences[sentenceKey]}
           </div>
         ))}
       </div>
