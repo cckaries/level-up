@@ -77,7 +77,7 @@ const Right = ({ onOptionClick = () => {} }) => {
             }}
           >
             {sentences[sentenceKey]}
-            <Link to={`/details/${sentenceKey}`}>Details</Link>
+            <Link to={`/dictionary/${sentenceKey}`}>Details</Link>
           </div>
         ))}
       </div>

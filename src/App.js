@@ -22,14 +22,17 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route path="/main">
+          {/* <Route path="/main">
             <MainPage />
-          </Route>
+          </Route> */}
           <Route path="/dictionary" exact>
             <DictionaryPage />
           </Route>
           <Route path="/dictionary/:sentenceId">
             <DetailsPage />
+          </Route>
+          <Route path="/">
+            <MainPage />
           </Route>
         </Switch>
       </main>
