@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import cx from 'classnames';
 
 import styles from './Left.module.scss';
@@ -56,7 +57,7 @@ const Left = ({ buttonText, onButtonClick = () => {} }) => {
       <div className={styles.Buttons}>
         buttons
         <button onClick={() => onButtonClick()}>{buttonText}</button>
-        <a href="/dictionary">link to dictionary</a>
+        <Link to="/dictionary">link to dictionary</Link>
       </div>
     </div>
   );
