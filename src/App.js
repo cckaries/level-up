@@ -6,11 +6,13 @@ import styles from './App.module.scss';
 import Header from './components/Header/Header';
 import MainPage from './pages/main';
 // import DictionaryPage from './pages/dictionary';
-import DetailsPage from './pages/details';
-import NotFoundPage from './pages/notFound';
+// import DetailsPage from './pages/details';
+// import NotFoundPage from './pages/notFound';
 // import { counterActions } from './store/counter';
 
 const DictionaryPage = lazy(() => import('./pages/dictionary'));
+const DetailsPage = lazy(() => import('./pages/details'));
+const NotFoundPage = lazy(() => import('./pages/notFound'));
 
 function App() {
   // const count = useSelector(state => state.counter.count);
