@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import MainPage from './pages/main';
 import DictionaryPage from './pages/dictionary';
 import DetailsPage from './pages/details';
+import NotFoundPage from './pages/notFound';
 // import { counterActions } from './store/counter';
 
 function App() {
@@ -22,17 +23,17 @@ function App() {
       <Header />
       <main>
         <Switch>
-          {/* <Route path="/main">
+          <Route path="/" exact>
             <MainPage />
-          </Route> */}
+          </Route>
           <Route path="/dictionary" exact>
             <DictionaryPage />
           </Route>
           <Route path="/dictionary/:sentenceId">
             <DetailsPage />
           </Route>
-          <Route path="/">
-            <MainPage />
+          <Route path="*">
+            <NotFoundPage />
           </Route>
         </Switch>
       </main>
