@@ -1,5 +1,5 @@
 // import { useDispatch, useSelector } from 'react-redux';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import styles from './App.module.scss';
@@ -25,20 +25,22 @@ function App() {
       <div>{count}</div> */}
       <Header />
       <main>
-        <Switch>
-          <Route path="/" exact>
-            <MainPage />
-          </Route>
-          <Route path="/dictionary" exact>
-            <DictionaryPage />
-          </Route>
-          <Route path="/dictionary/:sentenceId">
-            <DetailsPage />
-          </Route>
-          <Route path="*">
-            <NotFoundPage />
-          </Route>
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route path="/" exact>
+              <MainPage />
+            </Route>
+            <Route path="/dictionary" exact>
+              <DictionaryPage />
+            </Route>
+            <Route path="/dictionary/:sentenceId">
+              <DetailsPage />
+            </Route>
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
+        </Suspense>
       </main>
     </div>
   );
