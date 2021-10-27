@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import styles from './Right.module.scss';
+import { Link } from 'react-router-dom';
 
 const tabsObj = {
   0: 'Suggest',
@@ -19,7 +20,7 @@ const tabsObj = {
   sent4: 'this is sentence 4',
 }; */
 
-const Right = ({ buttonText, onButtonClick }) => {
+const Right = ({ onOptionClick = () => {} }) => {
   // const [currentTab, setCurrentTab] = useState('0');
   // const [currentSentence, setCurrentSentence] = useState(null);
   const { sentences } = useSelector(state => state.text);
@@ -76,6 +77,7 @@ const Right = ({ buttonText, onButtonClick }) => {
             }}
           >
             {sentences[sentenceKey]}
+            <Link to={`/dictionary/${sentenceKey}`}>Details</Link>
           </div>
         ))}
       </div>

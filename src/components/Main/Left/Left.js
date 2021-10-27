@@ -1,11 +1,12 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import cx from 'classnames';
 
 import styles from './Left.module.scss';
 import { putTextThunk, textActions } from '../../../store/text';
 
-const Left = ({ buttonText, onButtonClick }) => {
+const Left = ({ buttonText, onButtonClick = () => {} }) => {
   const dispatch = useDispatch();
   const { text } = useSelector(state => state.text);
   // const [{ text }, setState] = useReducer(
@@ -56,6 +57,7 @@ const Left = ({ buttonText, onButtonClick }) => {
       <div className={styles.Buttons}>
         buttons
         <button onClick={() => onButtonClick()}>{buttonText}</button>
+        <Link to="/dictionary">link to dictionary</Link>
       </div>
     </div>
   );
